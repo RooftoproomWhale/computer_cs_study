@@ -1,23 +1,34 @@
 package LinkedList.SLL;
 
-public class SingleLinkList
+import LinkedList.LinkedList;
+
+public class SingleLinkList<T> implements LinkedList<T>
 {
+    public class Node {
+        T data;
+        Node nextNode;
+        public Node(T newData)
+        {
+            this.data = newData;
+            this.nextNode = null;
+        }
+
+        protected T getData() {
+            return data;
+        }
+
+        protected Node getNextNode() {
+            return nextNode;
+        }
+    }
     private Node head;
     private Node tail;
 
-
-    public Node SLL_CreateNode(Object newData)
-    {
-        Node newNode = new Node(newData);
-        newNode.nextNode = null;
-
-        return newNode;
-    }
-    public void SLL_AppendNode(Node newNode)
+    public void AppendNode(T newNode)
     {
        if(head == null)
        {
-           head = newNode;
+           head = new Node(newNode);
        }
        else
        {
@@ -26,18 +37,20 @@ public class SingleLinkList
            {
                tail = tail.nextNode;
            }
-           tail.nextNode = newNode;
+           tail.nextNode = new Node(newNode);
        }
     }
 
-    public void SLL_InsertAfter(Node current, Node newNode)
+    public void InsertAfter(Node current, T newData)
     {
+        Node newNode = new Node(newData);
         newNode.nextNode = current.nextNode;
         current.nextNode = newNode;
     }
 
-    public void SLL_InsertNewHead(Node newHead)
+    public void InsertNewHead(T data)
     {
+        Node newHead = new Node(data);
         if(head != null)
         {
             newHead.nextNode = head;
@@ -45,7 +58,7 @@ public class SingleLinkList
         head = newHead;
     }
 
-    public void SLL_RemoveNode(Node remove)
+    public void RemoveNode(Node remove)
     {
         if(head == remove)
         {
@@ -64,7 +77,7 @@ public class SingleLinkList
         }
     }
 
-    public Node SLL_GetNodeAt(int location)
+    public Node GetNodeAt(int location)
     {
         Node current = head;
 
@@ -76,7 +89,7 @@ public class SingleLinkList
         return current;
     }
 
-    public int SLL_GetNodeCount()
+    public int GetNodeCount()
     {
         int count = 0;
         Node current = head;
