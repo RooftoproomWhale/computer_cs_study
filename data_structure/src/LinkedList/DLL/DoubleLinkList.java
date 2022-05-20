@@ -1,26 +1,45 @@
 package LinkedList.DLL;
 
-import LinkedList.DLL.Node;
+import LinkedList.LinkedList;
 
-public class DoubleLinkList
+public class DoubleLinkList<T> implements LinkedList<T>
 {
+    public class Node {
+        T data;
+        Node prevNode;
+        Node nextNode;
+        public Node(T newData)
+        {
+            this.data = newData;
+            this.prevNode = null;
+            this.nextNode = null;
+        }
+
+        public T getData() {
+            return data;
+        }
+
+        public Node getPrevNode() {
+            return prevNode;
+        }
+
+        public Node getNextNode() {
+            return nextNode;
+        }
+    }
     private Node head;
     private Node tail;
 
 
-    public Node DLL_CreateNode(Object newData)
+    public Node CreateNode(T newData)
     {
-        Node newNode = new Node(newData);
-        newNode.prevNode = null;
-        newNode.nextNode = null;
-
-        return newNode;
+        return new Node(newData);
     }
-    public void DLL_AppendNode(Node newNode)
+    public void AppendNode(T newData)
     {
         if(head == null)
         {
-            head = newNode;
+            head = new Node(newData);
         }
         else
         {
@@ -29,13 +48,20 @@ public class DoubleLinkList
             {
                 tail = tail.nextNode;
             }
+            Node newNode = new Node(newData);
             tail.nextNode = newNode;
             newNode.prevNode = tail;
         }
     }
 
-    public void DLL_InsertAfter(Node current, Node newNode)
+    @Override
+    public void InsertNewHead(T newNode) {
+
+    }
+
+    public void InsertAfter(Node current, T newData)
     {
+        Node newNode = new Node(newData);
         newNode.nextNode = current.nextNode;
         newNode.prevNode = current;
 
@@ -43,7 +69,7 @@ public class DoubleLinkList
         current.nextNode = newNode;
     }
 
-    public void DLL_RemoveNode(Node remove)
+    public void RemoveNode(Node remove)
     {
         if(head == remove)
         {
@@ -64,7 +90,7 @@ public class DoubleLinkList
         }
     }
 
-    public Node DLL_GetNodeAt(int location)
+    public Node GetNodeAt(int location)
     {
         Node current = head;
 
@@ -76,7 +102,7 @@ public class DoubleLinkList
         return current;
     }
 
-    public int DLL_GetNodeCount()
+    public int GetNodeCount()
     {
         int count = 0;
         Node current = head;
