@@ -18,11 +18,21 @@ public interface CalculatorInterface
         public char getOperator() {
             return operator;
         }
+        public static boolean equals(char c)
+        {
+            for (Type t : Type.values())
+            {
+                if(t.getOperator() == c) return true;
+            }
+            return false;
+        }
+
+
     }
 
-    int isNumber(char c);
+    boolean isNumber(char c);
     int getNextToken();
-    int isPrior(char operator1, char operator2);
+    boolean isPrior(char operator1, char operator2);
     String getPostFix(String infix);
     double Calculate(String Postfix);
 }
