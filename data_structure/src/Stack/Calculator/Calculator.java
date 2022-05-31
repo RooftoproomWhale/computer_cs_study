@@ -2,7 +2,7 @@ package Stack.Calculator;
 
 import Stack.LinkedList.LinkedListStack;
 
-import static Stack.Calculator.CalculatorInterface.Type.*;
+import static Stack.Calculator.Type.*;
 
 public class Calculator implements CalculatorInterface
 {
