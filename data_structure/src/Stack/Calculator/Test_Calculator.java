@@ -10,6 +10,11 @@ public class Test_Calculator
         System.out.println(postfix);
         String result = String.valueOf(calculator.Calculate(postfix));
         System.out.println(result);
+
+        postfix = calculator.getPostFix("12*10-30/5");
+        System.out.println(postfix);
+        result = String.valueOf(calculator.Calculate(postfix));
+        System.out.println(result);
     }
 
 }
