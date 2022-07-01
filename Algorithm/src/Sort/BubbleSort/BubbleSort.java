@@ -10,7 +10,6 @@ public class BubbleSort extends Sort
 
     @Override
     public int[] sort() {
-        before = System.currentTimeMillis();
         for (int i = 0; i < array.length - 1; i++)
         {
             for (int j = 0; j < array.length - (i + 1); j++)
@@ -21,7 +20,6 @@ public class BubbleSort extends Sort
                 }
             }
         }
-        after = System.currentTimeMillis();
         return array;
     }
 }

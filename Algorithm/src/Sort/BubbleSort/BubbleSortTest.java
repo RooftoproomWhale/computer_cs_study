@@ -13,6 +13,5 @@ public class BubbleSortTest {
         BubbleSort sort = new BubbleSort(dataSet);
 
         System.out.println(Arrays.toString(sort.sort()));
-        System.out.println("걸린 시간 : " + sort.getTimeMeasurement());
     }
 }

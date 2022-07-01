@@ -3,7 +3,6 @@ package Sort;
 public abstract class Sort
 {
     protected final int[] array;
-    protected long before, after;
 
     public Sort(int[] array) {
         this.array = array;
@@ -15,10 +14,5 @@ public abstract class Sort
         int swap = array[to];
         array[to] = array[from];
         array[from] = swap;
-    }
-
-    public long getTimeMeasurement()
-    {
-        return after - before;
     }
 }
