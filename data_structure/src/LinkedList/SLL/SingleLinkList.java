@@ -13,15 +13,19 @@ public class SingleLinkList<T> implements LinkedList<T>
             this.nextNode = null;
         }
 
-        protected T getData() {
+        public T getData() {
             return data;
         }
 
-        protected Node getNextNode() {
+        public void setNextNode(Node nextNode) {
+            this.nextNode = nextNode;
+        }
+
+        public Node getNextNode() {
             return nextNode;
         }
     }
-    private Node head;
+    public Node head;
     private Node tail;
 
     public void AppendNode(T newNode)
