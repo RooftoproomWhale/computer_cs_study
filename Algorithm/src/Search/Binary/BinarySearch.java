@@ -1,4 +1,4 @@
-package Search.Sequential;
+package Search.Binary;
 
 import java.util.Arrays;
 import java.util.Comparator;
